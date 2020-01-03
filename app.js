@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 var db = require('./db');
+const bodyParser = require('body-parser');
+
 global.__root   = __dirname + '/'; 
+app.use(bodyParser.json());
 
 db.connect();
 
