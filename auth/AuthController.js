@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 
 var VerifyToken = require('./VerifyToken');
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
+
 var User = require('../user/User');
 
 /**
@@ -17,6 +15,7 @@ var config = require('../config'); // get config file
 
 router.post('/login', function(req, res) {
 
+  console.log(req.body.email)
   User.findOne({ email: req.body.email }, function (err, user) {
     if (err) return res.status(500).send('Error on the server.');
     if (!user) return res.status(404).send('No user found.');
