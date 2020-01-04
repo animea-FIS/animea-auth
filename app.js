@@ -21,14 +21,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/api', function (req, res) {
+app.get('/api/v1', function (req, res) {
   res.status(200).send('API works.');
 });
 
 var UserController = require(__root + 'user/UserController');
-app.use('/api/users', UserController);
+app.use('/api/v1/users', UserController);
 
 var AuthController = require(__root + 'auth/AuthController');
-app.use('/api/auth', AuthController);
+app.use('/api/v1/auth', AuthController);
 
 module.exports = app;
