@@ -9,6 +9,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE $AUTH_PORT
+EXPOSE 3000
 
 CMD npm start
